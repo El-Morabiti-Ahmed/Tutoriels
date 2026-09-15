@@ -1,0 +1,19 @@
+ORDER(
+    Order_number,
+    Order_date,
+    Client_id,
+    Product_id,
+    Order_amount
+)
+
+CLIENT(
+    Client_id
+    Client_name,
+    Client_email
+)
+
+PRODUCT(
+    Product_id,
+    Product_name,
+    Product_price
+)

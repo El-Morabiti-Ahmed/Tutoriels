@@ -1,0 +1,14 @@
+ARTICLE(
+    title,
+    content,
+    publication_date,
+    author_id,
+    category_name,
+    category_description
+)
+
+AUTHOR(
+    author_id,
+    author_name,
+    author_email
+)

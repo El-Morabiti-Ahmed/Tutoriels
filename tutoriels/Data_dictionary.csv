@@ -1,0 +1,15 @@
+interface,name,meaning,type,required,calculated
+Login page,username,unique identifier,string,yes,no
+Login page,email,unique email address,string,yes,no
+Login page,password,hashed password,string,yes,no
+Login page,profile_picture,the user's profile picture,string,no,no
+Article creation page,title,title of the article,string,yes,no
+Article creation page,article_image,URL of the article image,string,yes,no
+Article creation page,content,main body of the article,string,yes,no
+Article creation page,date_created,timestamp of when created,date,yes,no
+Article creation page,published_date,timestamp of when published,date,no,no
+Article creation page,status,whether the article is published,string,yes,no
+X,estimated_read_time,how long it might take to read,time,X,yes
+Category creation page,category_name,name of category,string,yes,no
+Category,color,the color designated,string,yes,no
+Category,icon,the icon designated,string,yes,no
