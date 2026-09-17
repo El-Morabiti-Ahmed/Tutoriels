@@ -1,0 +1,2 @@
+CUSTOMER (0,N)---> makes --->(1,1) ORDER
+ORDER (1,N)---> contains ---> (0,N)PRODUCT
