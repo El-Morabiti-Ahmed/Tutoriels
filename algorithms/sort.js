@@ -1,4 +1,5 @@
-let array = [8, 
+let array = [
+    8, 
     3, 
     6, 
     1,
