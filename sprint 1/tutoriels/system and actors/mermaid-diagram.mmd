@@ -1,0 +1,13 @@
+usecase-beta
+direction LR
+actor Admin("Admin")
+actor Author("Author")
+actor Visitor("Visitor")
+
+  system [ "blog"]
+
+
+
+Admin -- Manages the content -- system 
+Author -- Write the articles -- system
+Visitor -- View published articles -- system 
