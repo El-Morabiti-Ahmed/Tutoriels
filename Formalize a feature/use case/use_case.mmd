@@ -1,0 +1,36 @@
+usecase-beta
+    actor Admin
+    actor Author
+    actor Visitor
+
+    UC1("View the categories")
+    UC2("Add a category")
+    UC3("Edit a category")
+    UC4("Eemove a category")
+    UC5("Create an author")
+    UC6("Validate an article")
+    UC7("Publish an article")
+
+    UC8("Add an article")
+    UC9("Edit a non published article")
+    UC10("Delete a non published article")
+    UC11("Change their profil")
+    UC12("Reset their password")
+
+    UC13("Views the articles")
+
+    Admin --- UC1
+    Admin --- UC2
+    Admin --- UC3
+    Admin --- UC4
+    Admin --- UC5
+    Admin --- UC6
+    Admin --- UC7
+
+    Author --- UC8
+    Author --- UC9
+    Author --- UC10
+    Author --- UC11
+    Author --- UC12
+
+    Visitor --- UC13
