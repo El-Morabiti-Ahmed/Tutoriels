@@ -1,8 +1,8 @@
 sequenceDiagram
-    actor Auteur
-    participant Systeme as Système
+    actor Author
+    participant System as System
 
-    Auteur->>Systeme: Accède à la page d'ajout d'article
-    Systeme-->>Auteur: Affiche le formulaire de création
-    Auteur->>Systeme: Saisit le titre, sélectionne la catégorie et le statut, téléverse une image, rédige le contenu et valide
-    Systeme-->>Auteur: Sauvegarde l'article et redirige vers la liste des articles
+    Author->>System: Accesses the add article page
+    System->>Author: Displays the creation form
+    Author->>System: Enters title, selects category & status, uploads image, writes content, and submits
+    System-->>Author: Saves the article and redirects to the article list
