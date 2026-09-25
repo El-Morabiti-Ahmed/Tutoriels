@@ -1,0 +1,13 @@
+sequenceDiagram
+    actor Author
+    participant System as System
+
+    Author->>System: Submits article form
+    
+    alt Content field is empty (Error Scenario)
+        System-->>Author: Rejects submission and displays error "Content is required"
+    else Status set to "Draft" (Alternative Scenario)
+        System-->>Author: Saves article as draft and redirects to article list (not visible to public)
+    else Form complete and Status set to "Published" (Nominal Scenario)
+        System-->>Author: Saves article as published and redirects to article list
+    end

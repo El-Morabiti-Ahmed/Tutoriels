@@ -3,6 +3,6 @@ sequenceDiagram
     participant System as System
 
     Author->>System: Accesses the add article page
-    System->>Author: Displays the creation form
+    System-->>Author: Displays the creation form
     Author->>System: Enters title, selects category & status, uploads image, writes content, and submits
     System-->>Author: Saves the article and redirects to the article list
