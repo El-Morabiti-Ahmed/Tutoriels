@@ -15,7 +15,7 @@ class Category {
     }
 }
 
-$cat = new Category();
+$cat = new Category(null); // adding argument to stop vscode from showing error
 $cat->setName("A"); // Will display the error
 $cat->setName("Web Development"); // Success
 echo "The name is now: " . $cat->getName();
