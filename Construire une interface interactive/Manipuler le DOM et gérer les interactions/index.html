@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management</title>
+</head>
+<body>
+
+    <h1>Categories</h1>
+
+    <button id="btn-show-form">New Category</button>
+
+    <section id="section-form" hidden>
+        <h2>Add a Category</h2>
+
+        <form id="form-categorie">
+            <label for="cat-nom">Name:</label>
+            <input type="text" id="cat-nom" required><br>
+            <label for="cat-couleur">Color:</label>
+            <input type="color" id="cat-couleur" required><br>
+            <button type="submit">Add Category</button>
+            <button type="button" id="btn-cancel-form">Cancel</button>
+        </form>
+    </section>
+
+    <br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+
+        <tbody id="table-categories-body">
+        </tbody>
+    </table>
+
+    <script>
+        const btnShowForm = document.querySelector("#btn-show-form");
+        const sectionForm = document.querySelector("#section-form");
+        const btnCancelForm = document.querySelector("#btn-cancel-form");
+
+        const formCategorie = document.querySelector("#form-categorie");
+        const catNom = document.querySelector("#cat-nom");
+        const catCouleur = document.querySelector("#cat-couleur");
+        const tableCategoriesBody = document.querySelector("#table-categories-body");
+
+        btnShowForm.addEventListener("click", () => {
+            btnShowForm.hidden = true;
+            sectionForm.hidden = false;
+        });
+
+        btnCancelForm.addEventListener("click", () => {
+            btnShowForm.hidden = false;
+            sectionForm.hidden = true;
+            formCategorie.reset();
+        });
+
+        formCategorie.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = catNom.value;
+            const color = catCouleur.value;
+
+            tableCategoriesBody.insertAdjacentHTML(
+                "beforeend",
+                `
+                <tr>
+                    <td>${name}</td>
+                    <td style="background-color: ${color}">
+                        ${color}
+                    </td>
+                </tr>
+                `
+            );
+
+            formCategorie.reset();
+            sectionForm.hidden = true;
+            btnShowForm.hidden = false;
+        });
+    </script>
+
+</body>
+</html>
