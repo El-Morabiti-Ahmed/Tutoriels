@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Layout Structure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Global Container: flex aligns the Sidebar and Main Content side-by-side -->
+    <div class="flex min-h-screen">
+
+        <!-- 1. Sidebar (Fixed width w-64) -->
+        <aside class="w-64 bg-slate-800 text-white p-6 flex flex-col gap-6">
+            <h2 class="text-xl font-bold">Admin Dashboard</h2>
+            <nav class="flex flex-col gap-2">
+                <a href="#" class="px-3 py-2 rounded hover:bg-slate-700">Dashboard</a>
+                <a href="#" class="px-3 py-2 rounded hover:bg-slate-700">Articles</a>
+                <a href="#" class="px-3 py-2 rounded bg-slate-700">Categories</a>
+            </nav>
+        </aside>
+
+        <!-- 2. Main Content Area (flex-1 fills remaining space + flex flex-col stacks Header & Main vertically) -->
+        <div class="flex-1 flex flex-col">
+
+            <!-- Header (Horizontal layout pushed to opposite ends) -->
+            <header class="flex items-center justify-between p-4 bg-white border-b border-gray-200">
+                <span class="font-medium text-gray-700">Category Management</span>
+                <span class="text-sm bg-gray-100 px-3 py-1 rounded-full text-gray-600">Admin</span>
+            </header>
+
+            <!-- Main Content (flex-1 fills all remaining vertical height) -->
+            <main class="flex-1 p-6">
+                <!-- Centered container with max width -->
+                <div class="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-sm">
+                    <h1 class="text-2xl font-bold mb-2 text-gray-800">Categories</h1>
+                    <p class="text-gray-600">Manage and organize your blog topics.</p>
+                </div>
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
