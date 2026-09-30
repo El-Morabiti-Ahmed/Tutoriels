@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build an Interactive Interface</title>
+</head>
+<body>
+    
+    <h1>Categories</h1>
+    <form action="" id="form-object">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="color" placeholder="Color">
+        <input type="text" id="icon" placeholder="Icon">
+        <button type="submit">Add</button>
+    </form>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="table-categories-body">
+            
+        </tbody>
+    </table>
+
+    <script>
+        const API_URL = "http://localhost:8000/backend/api.php";
+        const form = document.querySelector("#form-object");
+        const inputName = document.querySelector("#name");
+        const inputColor = document.querySelector("#color");
+        const inputIcon = document.querySelector("#icon");   
+        const tBody = document.querySelector("#table-categories-body");
+
+        function loadCategories() {
+            fetch(API_URL)
+            .then(response => response.json())
+            .then(result => {
+                tBody.innerHTML = "";
+                
+                result.forEach(category => {
+                    tBody.insertAdjacentHTML("beforeend", `
+                        <tr>
+                            <td>${category.nom || category.name}</td>
+                            <td>${category.couleur || category.color}</td>  
+                            <td>
+                                <button class="btn-delete" data-id="${category.id}">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    `);
+                });
+
+                const buttons = document.querySelectorAll(".btn-delete");
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        const id = button.dataset.id;
+
+                        fetch(API_URL, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ id: id })
+                        })
+                        .then(response => response.json())
+                        .then(result => {
+                            loadCategories();
+                        });
+                    });
+                });
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        document.addEventListener("DOMContentLoaded", () => { 
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const item = {
+                    name: inputName.value,
+                    color: inputColor.value,
+                    icon: inputIcon.value
+                };
+
+                fetch(API_URL, { 
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(item)
+                })
+                .then(response => response.json())
+                .then(result => {
+                    form.reset();
+                    loadCategories();
+                });
+            });
+
+            loadCategories(); 
+        });
+    </script>
+</body>
+</html>
