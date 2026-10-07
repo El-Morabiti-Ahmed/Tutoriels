@@ -6,18 +6,30 @@
     <title>DOM</title>
 </head>
 <body>
+    <h1>People List</h1>
+
+
     <button id="magic_btn">Show Form</button>
 
 
     <form action="" id="form" hidden>
-        <input type="text" id="nameINP">
+        <input type="text" id="Fname" placeholder="First Name">
+        <input type="text" id="Lname" placeholder="Last Name">
         <button type="submit">Sumbit</button>
     </form>
 
-    <ul id="ul">
-        
-    </ul>
+   <table border="1">
+    <thead>
+        <tr>
+            <th>Person ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
 
+    </tbody>
+   </table>
 
     <script src="main.js"></script>
 </body>
