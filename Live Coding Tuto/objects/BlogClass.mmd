@@ -1,0 +1,34 @@
+classDiagram
+    class User {
+        -int id
+        -string email
+        -string password
+        -string role
+    }
+
+    class Author {
+        -int id
+        -string last_name
+        -string first_name
+        -string biography
+        -string avatar
+    }
+
+    class Article {
+        -int id
+        -int id_categorie
+        -string title
+        -text content
+        -string status
+        -DateTime creation_date
+    }
+    class Category{
+        -int id
+        -string name
+        -string color
+        -string icon
+    }
+
+User "1" --> "0..1" Author: is
+Author "1..*" --> "0..*" Article: write
+Article "0..*" --> "1" Category: belongs to

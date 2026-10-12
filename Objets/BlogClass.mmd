@@ -32,4 +32,4 @@ classDiagram
 
     User "1" --> "0..1" Author : is
     Author "1" --> "*" Article : writes
-    Article "*" --> "1" Category : belongs to
+    Article "0..*" --> "1" Category : belongs to
