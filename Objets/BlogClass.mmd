@@ -2,14 +2,14 @@ classDiagram
     class User {
         -int id
         -string email
-        -string mot_de_passe
+        -string password
         -string role
     }
 
-    class Auteur {
+    class Author {
         -int id
-        -string nom
-        -string prenom
+        -string last_name
+        -string first_name
         -string biographie
         -string avatar
     }
@@ -17,11 +17,11 @@ classDiagram
     class Article {
         -int id
         -int id_categorie
-        -string titre
-        -text contenu
-        -string statut
-        -DateTime date_creation
+        -string title
+        -text content
+        -string status
+        -DateTime creation_date
     }
 
-    User "1" --> "0..1" Auteur : is
-    Auteur "1" --> "*" Article : writes
+    User "1" --> "0..1" Author : is
+    Author "1" --> "*" Article : writes
