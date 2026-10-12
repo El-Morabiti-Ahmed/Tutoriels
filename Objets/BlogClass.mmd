@@ -1,0 +1,27 @@
+classDiagram
+    class User {
+        -int id
+        -string email
+        -string mot_de_passe
+        -string role
+    }
+
+    class Auteur {
+        -int id
+        -string nom
+        -string prenom
+        -string biographie
+        -string avatar
+    }
+
+    class Article {
+        -int id
+        -int id_categorie
+        -string titre
+        -text contenu
+        -string statut
+        -DateTime date_creation
+    }
+
+    User "1" --> "0..1" Auteur : is
+    Auteur "1" --> "*" Article : writes
