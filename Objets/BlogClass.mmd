@@ -22,6 +22,14 @@ classDiagram
         -string status
         -DateTime creation_date
     }
+    class Category{
+        -int id
+        -string name
+        -string color
+        -string icon
+    }
+
 
     User "1" --> "0..1" Author : is
     Author "1" --> "*" Article : writes
+    Article "*" --> "1" Category : belongs to
