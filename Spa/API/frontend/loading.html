@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center p-6">
+
+    <!-- Toast Container (Bottom-Right) -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3"></div>
+
+    <!-- Main Form Card -->
+    <div class="w-full max-w-md bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl">
+        <h2 class="text-xl font-bold mb-4 text-white">Add New Category</h2>
+        
+        <form id="form-category" class="space-y-4">
+            <div>
+                <label for="category-name" class="block text-sm font-medium text-slate-300 mb-1">Category Name</label>
+                <input 
+                    type="text" 
+                    id="category-name" 
+                    name="name" 
+                    required 
+                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="e.g. Electronics"
+                >
+            </div>
+
+            <button 
+                type="submit" 
+                id="btn-submit-form" 
+                class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+                Save
+            </button>
+        </form>
+    </div>
+
+    <!-- JavaScript Connection -->
+    <script src="../../assets/js/app.js"></script>
+</body>
+</html>
